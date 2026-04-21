@@ -1,0 +1,158 @@
+create database Nicolas_veebipood
+use Nicolas_veebipood;
+
+--tabel Brands
+create table Brands(
+brand_id int primary key identity (1,1),
+brand_name varchar(25) UNIQUE)
+
+insert into brands
+values ('Jewrdan')
+
+select * from brands
+
+
+--tabel categories
+
+create table categories(
+category_id int Primary key identity(1,1),
+category_name VARCHAR(25) UNIQUE)
+
+insert into categories
+values ('nicolas')
+
+select * from categories 
+
+--tabel products 
+
+create table products(
+product_id int Primary key identity(1,1),
+product_name VARCHAR(25) UNIQUE,
+brand_id int,
+foreign key (brand_id) references brands(brand_id),
+category_id int, 
+foreign key (category_id) references categories(category_id),
+model_year  int, 
+list_price money)
+
+select * from products 
+
+
+insert into products
+values ('tossud air force',2,1,2021,10.29)
+
+
+create table customers(
+product_id int Primary key identity(1,1),
+First_name varchar(25) Not null,
+Last_name varchar(25) Not null,
+Phone char (13), 
+Emai varchar(25) Not null, 
+Street varchar (25),
+City varchar(25),
+State varchar(25),
+Zip_code char(5))
+
+select * from Customers 
+
+insert into Customers
+Values ('Priit', 'Mets', '576768', 'priit´.mets@gmail.com', 'Mingi tanav', 'Linnutee', 'Eesti', '77344')
+
+
+create table Stores(
+store_id int Primary key identity(1,1),
+First_name varchar(25) Not null,
+Last_name varchar(25) Not null,
+Phone char (13), 
+Emai varchar(25) Not null, 
+Street varchar (25),
+City varchar(25),
+State varchar(25),
+Zip_code char(5))
+
+select * from Customers 
+
+insert into Customers
+Values ('Sportland', 'Mets', '5767682313', 'priit´.mets@gmail.com', 'Lege tanav', 'Prisma', 'Eesti', '77343')
+
+
+create table Staff(
+staff_id int Primary key identity(1,1),
+First_name varchar(25) Not null,
+Last_name varchar(25) Not null,
+Phone char (13), 
+Active bit,
+store_id int,
+Foreign key (store_id) References Stores(store_id),
+Manager_id bit)
+
+
+Select * from Staff 
+
+Insert into Staff 
+values ('Tanel', 'Tamm', 'tanel.tamm@gmail.com', 58726362,1 ,2 ,0)
+
+select * from staff 
+
+--Tabel nr stocks
+
+create table stocks(
+store_id int,
+product_id int,
+primary key (store_id, product_id),
+foreign key (store_id) references stores(store_id)
+foreign key (product_id) references products(product_id),
+quantity int)
+
+select * from stores 
+select * from products
+
+insert into stocks
+values (1, 1, 100), (1, 2, 30)
+select * from stocks 
+
+
+--tabel orders
+
+create table orders(
+order_id int Primary key identity(1,1),
+customer_id int,
+Foreign key (customer_id) references customers(customer_id),
+order_status varchar(10), check(order_status = 'tehtud' or order_status = 'tegematta'),
+order_date date,
+required_date date,
+shipped_date date,
+store_id int, Foreign key(store_id) references stores(store_id),
+staff_id int, Foreign key(staff_id) references stores(staff_id))
+
+select * from orders
+
+select * from stores 
+
+select * from staff 
+
+select * from customers 
+
+insert into orders 
+
+values (1, 'tehtud', '2026-04-21', '2026-05-10', '2026-05-01', 1,1)
+
+--tabel order_items
+
+create table order_items(
+order_id int, 
+Foreign key(order_id)references  orders(order_id), 
+item_id int,
+product_id int,
+Foreign key(product_id)references products(product_id),
+primary key(order_id, item_id),
+quanity int, 
+list_price  money,
+discount int)
+
+select * from order_items 
+select * from products 
+select * from orders 
+
+insert into order_items 
+values (1, 1, 2, ,100, 100, 20)
