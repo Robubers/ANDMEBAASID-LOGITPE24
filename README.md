@@ -1,3 +1,5 @@
+
+
 # ANDMEBAASID-LOGITPE24
 
 select * from categories
