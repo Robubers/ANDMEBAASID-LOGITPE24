@@ -57,3 +57,9 @@ BEGIN
 END
 --kutse
 EXEC kustutaIdjargi 6;
+
+
+
+
+<img width="777" height="370" alt="{CEDDBA03-9150-4A63-95E2-205BF1DF05CB}" src="https://github.com/user-attachments/assets/606eb955-583e-404a-b309-9fbc2671babe" />
+
