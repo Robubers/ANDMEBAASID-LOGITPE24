@@ -1,0 +1,240 @@
+create database Robert 
+use Robert 
+
+
+
+create table Robuber(
+robert_id int primary key identity (1,1),
+robert_name varchar(25) UNIQUE)
+
+insert into Robuber
+values ('Mingi Asi')
+
+select * from Robuber
+
+
+create table kategooria(
+kategooria_id int Primary key identity(1,1),
+kategooria_name VARCHAR(25) UNIQUE)
+
+insert into kategooria
+values ('nicolas')
+
+select * from kategooria 
+
+create table produktsioon(
+produktsioon_id int Primary key identity(1,1),
+produktsioon_name VARCHAR(25) UNIQUE,
+Robuber_id int,
+foreign key (Robuber_id) references Robuber(robert_id),
+Kategooria_id int, 
+foreign key (Kategooria_id) references Kategooria(kategooria_id),
+model_year  int, 
+list_price money)
+
+select * from produktsioon
+
+insert into produktsioon
+values ('tossud Campus',2,1,2021,10.29)
+
+create table kliendid3(
+klient_id int Primary key identity(1,1),
+First_name varchar(25) Not null,
+Last_name varchar(25) Not null,
+City varchar(25),
+Vanus int,
+Saldo money)
+
+select * from kliendid3
+
+insert into kliendid3
+Values ('Ron', 'Lübek', 'Eesti', '23', 4.4)
+
+
+--Kustuta klient prots.
+
+
+Create procedure kustutaKliendiIdJargi3
+@id int
+AS
+BEGIN
+    SELECT * FROM kliendid3;
+    DELETE FROM kliendid3 WHERE First_name=@id;
+	SELECT * FROM kliendid3;
+END
+
+EXEC kustutaKliendiIdJargi3 Robert; 
+
+
+--Otsi klienti prots.
+
+CREATE PROCEDURE otsingidtaht
+@taht char(1)
+AS
+BEGIN
+    SELECT First_name FROM kliendid3 
+	WHERE First_name LIKE @taht + '%'
+END
+
+--kutse
+EXEC otsingidtaht 'r'
+
+
+--Muuda kliendi andmeid prots.
+
+CREATE PROCEDURE uuendaKliendi
+@id int,
+@uuendatudNimi varchar(20)
+AS 
+BEGIN
+    SELECT * FROM kliendid3;
+    UPDATE kliendid3 SET City=@uuendatudNimi 
+	WHERE City=@id;
+	SELECT * FROM kliendid3;
+END
+
+--kutse
+EXEC uuendaKliendi 8, 'Tartu'
+
+
+--Lisa klient prots. 
+
+CREATE PROCEDURE LisaMidagi 
+    @Nimi varchar(20),
+    @Linn varchar(20),
+    @Vanus int,
+    @Saldo money
+AS
+BEGIN
+    INSERT INTO kliendid3(First_name, City, Vanus, Saldo)
+    VALUES (@Nimi, @Linn, @Vanus, @Saldo);
+
+    SELECT * FROM kliendid3;
+END;
+GO
+
+--kutse
+EXEC LisaMidagi '', '', 20, 1.30;
+
+
+
+CREATE PROCEDURE muudatus
+    @Nimi varchar(10),
+    @Linn varchar(25),
+    @Vanus int, 
+    @Saldo money
+AS
+BEGIN
+    DECLARE @sqltegevus varchar(max);
+
+    SET @sqltegevus = CASE 
+        WHEN @Nimi = 'add' THEN 
+            CONCAT('ALTER TABLE ', @Linn, ' ADD ', @Vanus, ' ', @Saldo)
+
+        WHEN @nimi = 'drop' THEN 
+            CONCAT('ALTER TABLE ', @Linn, ' DROP COLUMN ', @Vanus)
+    END;
+
+    PRINT @sqltegevus;
+    EXEC (@sqltegevus);
+END;
+
+
+-- veeru lisamine
+EXEC muudatus 
+    @Nimi='add', 
+    @='kino', 
+    @veerunimi='test', 
+    @tyyp='int';
+
+-- veeru kustutamine
+EXEC muudatus 
+    @Nimi='Robert', 
+    @Linn='Narva', 
+    @Vanus='3';
+
+
+CREATE PROCEDURE muudatus
+    @tegevus varchar(10),
+    @tabelinimi varchar(25),
+    @veerunimi varchar(25),
+    @tyyp varchar(25) = NULL
+AS
+BEGIN
+    DECLARE @sqltegevus varchar(max);
+
+    SET @sqltegevus = CASE 
+        WHEN @tegevus = 'add' THEN 
+            CONCAT('ALTER TABLE ', @tabelinimi, ' ADD ', @veerunimi, ' ', @tyyp)
+
+        WHEN @tegevus = 'drop' THEN 
+            CONCAT('ALTER TABLE ', @tabelinimi, ' DROP COLUMN ', @veerunimi)
+    END;
+
+    PRINT @sqltegevus;
+    EXEC (@sqltegevus);
+END;
+
+
+
+-- veeru lisamine
+
+EXEC muudatus 
+    @tegevus='add', 
+    @tabelinimi='kliendid3', 
+    @veerunimi='test', 
+    @tyyp='int';
+
+
+select * from kliendid3
+
+-- veeru kustutamine
+
+EXEC muudatus 
+    @tegevus='drop', 
+    @tabelinimi='kliendid3', 
+    @veerunimi='test';
+
+
+
+--Tingimuslause kasutamine (CASE / IF)
+
+
+CREATE PROCEDURE kuvaTootedHinnaKategooriaga2
+AS
+BEGIN
+    SELECT 
+        Saldo,
+        CASE 
+            WHEN Saldo < 5 THEN 'Hea klient :)'
+            ELSE 'TavaKlient'
+        END AS hinnaKategooria
+    FROM kliendid3;
+END;
+
+
+EXEC kuvaTootedHinnaKategooriaga2
+
+
+-- output
+
+CREATE PROCEDURE minmaxHind3
+    @minHind MONEY OUTPUT,
+    @maxHind MONEY OUTPUT
+AS
+BEGIN
+    SELECT
+        @minHind = MIN(Saldo),
+        @maxHind = MAX(Saldo)
+    FROM kliendid3;
+END;
+GO
+
+-- kasutamine
+
+DECLARE @minHind MONEY, @maxHind MONEY;
+
+EXEC minmaxHind3 @minHind OUTPUT, @maxHind OUTPUT;
+
+PRINT 'Min hind = ' + CONVERT(varchar, @minHind);
+PRINT 'Max hind = ' + CONVERT(varchar, @maxHind);
