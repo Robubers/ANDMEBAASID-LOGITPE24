@@ -69,3 +69,60 @@ insert into auto (autonumber, mark, mudell, v_aasta, varv, hind) values ('1225GU
 insert into auto (autonumber, mark, mudell, v_aasta, varv, hind) values ('041afa', 'Chevrolet', 'Colorado', 2004, 'Pink', '€5465,62');
 insert into auto (autonumber, mark, mudell, v_aasta, varv, hind) values ('512Aak', 'Mercury', 'Sable', 2005, 'Turquoise', '€4143,32');
 ```
+
+```sql
+Select * from auto;
+
+Select mark, mudell, hind from auto;
+--tingimused 
+--sorteerimine
+--sorteerimine  -ORDER by -kasvavalt,  DESC - kahanevalt
+Select mark, mudell, hind
+from auto 
+ORDER by hind;
+ORDER hind by DESC;
+```
+<img width="598" height="569" alt="{1D68506B-7802-40E5-89D4-43E7C7884CDC}" src="https://github.com/user-attachments/assets/db32fb45-55bd-4def-ba72-36801d8915d8" />
+
+```sql
+Select mark  FROM auto 
+WHERE mark LIKE 'C%';
+```
+
+```sql
+--hind on vahemikus 500 kuni 1000 euro 
+Select mark, autonumber, hind
+From auto 
+Where hind > 150000 AND hind < 300000;
+
+--kombineeritud tingimused (AND, OR, NOT)
+
+Select mark, autonumber, hind
+FROM  auto 
+Where mark LIKE 'Pontiac' OR hind <=100000
+
+--vaade loomine - VIEW
+CREATE VIEW pontiacAutod
+AS
+Select mark, autonumber, hind
+FROM  auto 
+Where mark LIKE 'Pontiac';
+
+
+--view kasutamine
+Select * from pontiacAutod;
+
+
+--AgreegaatFunktsioon - SUM, MAX, MIN, AVG, COUNT- kogus 
+
+--Leia mitu autod on tabelis 
+SELECT COUNT(*) AS autodeArv FROM auto;
+
+--leia keskmine autohind
+SELECT mark, AVG(hind) AS 'autoKeskmineHind' FROM auto;
+
+--leia keskmine autohind iga margi kohta
+SELECT mark, AVG(hind) AS 'autoKeskmineHind'
+FROM auto
+GROUP by mark;
+```
