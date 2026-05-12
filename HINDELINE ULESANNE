@@ -2,41 +2,6 @@ create database Robert
 use Robert 
 
 
-
-create table Robuber(
-robert_id int primary key identity (1,1),
-robert_name varchar(25) UNIQUE)
-
-insert into Robuber
-values ('Mingi Asi')
-
-select * from Robuber
-
-
-create table kategooria(
-kategooria_id int Primary key identity(1,1),
-kategooria_name VARCHAR(25) UNIQUE)
-
-insert into kategooria
-values ('nicolas')
-
-select * from kategooria 
-
-create table produktsioon(
-produktsioon_id int Primary key identity(1,1),
-produktsioon_name VARCHAR(25) UNIQUE,
-Robuber_id int,
-foreign key (Robuber_id) references Robuber(robert_id),
-Kategooria_id int, 
-foreign key (Kategooria_id) references Kategooria(kategooria_id),
-model_year  int, 
-list_price money)
-
-select * from produktsioon
-
-insert into produktsioon
-values ('tossud Campus',2,1,2021,10.29)
-
 create table kliendid3(
 klient_id int Primary key identity(1,1),
 First_name varchar(25) Not null,
@@ -53,17 +18,21 @@ Values ('Ron', 'Lübek', 'Eesti', '23', 4.4)
 
 --Kustuta klient prots.
 
-
-Create procedure kustutaKliendiIdJargi3
-@id int
+ALTER procedure kustutaKliendiIdJargi3 
+@nimi nvarchar(50) 
 AS
 BEGIN
     SELECT * FROM kliendid3;
-    DELETE FROM kliendid3 WHERE First_name=@id;
-	SELECT * FROM kliendid3;
+    DELETE FROM kliendid3 WHERE First_name = @nimi;
+    SELECT * FROM kliendid3;
 END
 
-EXEC kustutaKliendiIdJargi3 Robert; 
+
+EXEC kustutaKliendiIdJargi3 'Jüri';
+
+
+
+
 
 
 --Otsi klienti prots.
@@ -82,39 +51,48 @@ EXEC otsingidtaht 'r'
 
 --Muuda kliendi andmeid prots.
 
-CREATE PROCEDURE uuendaKliendi
+CREATE PROCEDURE uuendaKliendi2
 @id int,
 @uuendatudNimi varchar(20)
 AS 
 BEGIN
     SELECT * FROM kliendid3;
     UPDATE kliendid3 SET City=@uuendatudNimi 
-	WHERE City=@id;
+	WHERE klient_id=@id;
 	SELECT * FROM kliendid3;
 END
 
 --kutse
-EXEC uuendaKliendi 8, 'Tartu'
+EXEC uuendaKliendi2 3, 'Tartu'
+
+select * from kliendid3
+
+
+
+
+
+
 
 
 --Lisa klient prots. 
 
-CREATE PROCEDURE LisaMidagi 
+CREATE PROCEDURE LisaMidagi5
     @Nimi varchar(20),
+    @Perenimi varchar(20), -- This is the missing 5th parameter
     @Linn varchar(20),
     @Vanus int,
     @Saldo money
 AS
 BEGIN
-    INSERT INTO kliendid3(First_name, City, Vanus, Saldo)
-    VALUES (@Nimi, @Linn, @Vanus, @Saldo);
+    INSERT INTO kliendid3(First_name, Last_name, City, Vanus, Saldo)
+    VALUES (@Nimi, @Perenimi, @Linn, @Vanus, @Saldo);
 
     SELECT * FROM kliendid3;
 END;
-GO
 
 --kutse
-EXEC LisaMidagi '', '', 20, 1.30;
+
+EXEC LisaMidagi5 'Jüri', 'Tamm', 'Tallinn', 20, 1.30;
 
 
 
@@ -154,7 +132,7 @@ EXEC muudatus
     @Vanus='3';
 
 
-CREATE PROCEDURE muudatus
+CREATE PROCEDURE muudatus2
     @tegevus varchar(10),
     @tabelinimi varchar(25),
     @veerunimi varchar(25),
@@ -179,7 +157,7 @@ END;
 
 -- veeru lisamine
 
-EXEC muudatus 
+EXEC muudatus2
     @tegevus='add', 
     @tabelinimi='kliendid3', 
     @veerunimi='test', 
@@ -190,7 +168,7 @@ select * from kliendid3
 
 -- veeru kustutamine
 
-EXEC muudatus 
+EXEC muudatus2 
     @tegevus='drop', 
     @tabelinimi='kliendid3', 
     @veerunimi='test';
@@ -238,3 +216,12 @@ EXEC minmaxHind3 @minHind OUTPUT, @maxHind OUTPUT;
 
 PRINT 'Min hind = ' + CONVERT(varchar, @minHind);
 PRINT 'Max hind = ' + CONVERT(varchar, @maxHind);
+ 
+ 
+CREATE PROCEDURE KuvaKoikKliendid
+AS
+BEGIN
+    SELECT * FROM kliendid3;
+END;
+
+EXEC KuvaKoikKliendid;
