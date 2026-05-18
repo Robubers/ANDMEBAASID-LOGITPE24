@@ -1,0 +1,35 @@
+create table loom2(
+loom_id int Primary key identity(1,1),
+nimi varchar(25) Not null UNIQUE,
+liik varchar(25) Not null,
+tõug varchar(25) Not null,
+saabumise_kuupäev date, 
+boks_id int REFERENCES boks(boks_id) 
+);
+
+
+
+create table boks(
+boks_id int primary key identity(1,1),
+nimetus varchar(25) Not null UNIQUE,
+asukoht varchar(25) Not null,
+mahutavatus int DEFAULT 1 CHECK (mahutavatus >= 1) 
+);
+
+
+
+create table vabatahtlik(
+vabatahtlik_id int primary key identity(1,1),
+nimi varchar(25) Not null,
+kontakt int Not null UNIQUE 
+);
+
+
+
+create table koristus2(
+koristus_id int primary key identity(1,1),
+kuupäev date UNIQUE, 
+kestus int Not null,
+loom_id int REFERENCES loom(loom_id), 
+vabatahtlik_id int REFERENCES vabatahtlik(vabatahtlik_id) 
+);
