@@ -1,0 +1,41 @@
+create database MovieBase
+use MovieBase
+
+CREATE TABLE Movies (
+MovieID INT PRIMARY KEY IDENTITY(1,1),
+MovieName VARCHAR(100) NOT NULL,
+MovieYear INT NOT NULL,
+MovieDirector VARCHAR(50),
+MovieCost MONEY
+);
+
+select * from movies
+
+INSERT INTO Movies
+VALUES ('Back to the Future', '1985', 'Robert Zemeckis', 1.5);
+
+
+INSERT INTO Movies
+VALUES ('Scream', '1996', 'Wes Craven', 4.5);
+
+
+INSERT INTO Movies
+VALUES ('', '1996', 'Wes Craven', 4.5);
+
+
+
+create table guest (
+GuestID INT PRIMARY KEY IDENTITY(1,1),
+GuestName varchar (100) NOT NULL,
+);
+
+select * from guest
+
+insert into guest
+values('Robert')
+
+insert into guest
+values('Kevin')
+
+insert into guest
+values('Ron')
