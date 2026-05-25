@@ -2,7 +2,7 @@
 ### Triger - andmebaasi objekt, käivtub automaatselt, kui toimub teatud sündmus (nt INSERT, UPDATE, DELETE).
 trigerite loomine automatiseerib protsessid SQL serveris 
 
-##Tabelid mis peab looma enne trtigerite tegemist 
+##Tabelid mis peab looma enne trigerite tegemist 
 
 
 ```sql
