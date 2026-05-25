@@ -113,4 +113,5 @@ ON deleted.linnId=inserted.linnId;
 UPDATE linnad SET linnanimi='Tallinn22', rahvaarv=700000
 Where linnId=1;
 ```
+<img width="631" height="434" alt="{32235D6A-0224-4FB6-80A0-A586721EC013}" src="https://github.com/user-attachments/assets/8a89d677-98e1-402a-8839-d8a178a43199" />
 
