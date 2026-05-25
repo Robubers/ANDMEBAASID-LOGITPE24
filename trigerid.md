@@ -5,7 +5,8 @@ trigerite loomine automatiseerib protsessid SQL serveris
 ##Tablid mis peab looma enne trtigerite tegemist 
 
 
-´´´sql
+```sql
+
 CREATE database TRIGERIDLOGITPE24
 
 use TRIGERIDLOGITPE24;
@@ -31,4 +32,4 @@ andmed TEXT);
 
 SELECT * FROM logi 
 
-´´´e
+
