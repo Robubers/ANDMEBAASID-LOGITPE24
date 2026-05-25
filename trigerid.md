@@ -31,5 +31,5 @@ aeg DATETIME,
 andmed TEXT);
 
 SELECT * FROM logi 
-
+```
 
