@@ -88,3 +88,29 @@ SELECT * FROM linnad;
 SELECT * FROM logi;
 ```
 <img width="629" height="446" alt="{0E747321-AF21-4F73-AA2D-FA33C25974BB}" src="https://github.com/user-attachments/assets/6037e6c5-6ac1-4b6c-800c-ef7232fb7261" />
+
+
+```sql
+--3.UPDATE trigger -jälgib ueendused/muutused tabelis linnad
+--ja teeb vastava kirje tabelis logi
+
+CREATE TRIGGER linnauuendamine
+ON linnad --tabel, mida trigger jälgib
+FOR UPDATE
+AS
+INSERT logi(kasutaja, aeg, andmed)
+SELECT 
+SYSTEM_USER, --sisselogitud user 
+GETDATE(), 
+CONCAT ('VANAD ANDMED : ',
+deleted.linnanimi,', ', deleted.maakond,', ', deleted. rahvaarv, 
+' ||| uued andmed: ',
+inserted.linnanimi,', ', inserted.maakond,', ', inserted. rahvaarv)
+FROM deleted INNER JOIN inserted
+ON deleted.linnId=inserted.linnId;
+
+--kontroll
+UPDATE linnad SET linnanimi='Tallinn22', rahvaarv=700000
+Where linnId=1;
+```
+
