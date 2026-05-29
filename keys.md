@@ -510,17 +510,17 @@ SQLNoir – Primary Key vs Foreign Key
 Visuaalne ja lihtne võrdlus Primary Key ja Foreign Key vahel.
 
 
-https://www.techtarget.com/searchdatamanagement/answer/Definition-of-primary-super-foreign-and-candidate-key-in-the-DBMS?utm_source=chatgpt.com 
+https://www.techtarget.com/searchdatamanagement/answer/Definition-of-primary-super-foreign-and-candidate-key-in-the-DBMS
 
-https://www.datacamp.com/tutorial/foreign-key?utm_source=chatgpt.com
+https://www.datacamp.com/tutorial/foreign-key
 
-https://www.datacamp.com/tutorial/sql-primary-key?utm_source=chatgpt.com 
+https://www.datacamp.com/tutorial/sql-primary-key
 
-https://tutorialreference.com/sql/joining-tables/sql-primary-keys-and-foreign-keys?utm_source=chatgpt.com 
+https://tutorialreference.com/sql/joining-tables/sql-primary-keys-and-foreign-keys
 
-https://www.databasestar.com/database-keys/?utm_source=chatgpt.com 
+https://www.databasestar.com/database-keys/
 
-https://www.sqlnoir.com/blog/primary-key-vs-foreign-key?utm_source=chatgpt.com 
+https://www.sqlnoir.com/blog/primary-key-vs-foreign-key?
 
 
 
