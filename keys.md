@@ -1,5 +1,3 @@
-## Andmebaasi võtmed (keys)
-
 # Andmebaasi võtmete mõisted
 
 ## 1. Primary Key (Primaarvõti)
@@ -20,14 +18,6 @@ Primary Key on väli või väljade kombinatsioon, mis identifitseerib iga tabeli
 * Tabelis saab olla ainult üks Primary Key.
 * Valitakse kandidaatvõtmete hulgast peamiseks identifikaatoriks.
 
-### Näide
-
-Tabel: **Õpilased**
-
-| ÕpilaseID | Nimi          | Klass |
-| --------- | ------------- | ----- |
-| 1         | Mari Maasikas | 10A   |
-| 2         | Jaan Tamm     | 10B   |
 
 Siin on **ÕpilaseID** Primary Key, sest iga väärtus on unikaalne.
 
@@ -50,15 +40,7 @@ Foreign Key on väli, mis viitab teise tabeli Primary Key-le.
 * Võib sisaldada korduvaid väärtusi.
 * Viitab teise tabeli võtmele.
 
-### Näide
 
-Tabel: **Tellimused**
-
-| TellimusID | ÕpilaseID | Toode      |
-| ---------- | --------- | ---------- |
-| 101        | 1         | Sülearvuti |
-| 102        | 2         | Hiir       |
-| 103        | 1         | Klaviatuur |
 
 Siin on **ÕpilaseID** Foreign Key, sest see viitab tabeli Õpilased väljale ÕpilaseID.
 
@@ -81,14 +63,7 @@ Unique Key tagab, et kõik väärtused veerus on unikaalsed.
 * Võib sisaldada NULL väärtusi (sõltub andmebaasisüsteemist).
 * Ei ole tabeli peamine identifikaator nagu Primary Key.
 
-### Näide
 
-Tabel: **Kasutajad**
-
-| KasutajaID | Email                                   |
-| ---------- | --------------------------------------- |
-| 1          | [mari@email.com](mailto:mari@email.com) |
-| 2          | [jaan@email.com](mailto:jaan@email.com) |
 
 Siin on **Email** Unique Key, sest sama e-posti aadress ei tohi korduda.
 
@@ -109,14 +84,7 @@ Simple Key koosneb ainult ühest atribuudist ehk ühest veerust.
 * Sisaldab ainult ühte välja.
 * Vastand Composite Key-le, mis koosneb mitmest väljast.
 
-### Näide
 
-Tabel: **Raamatud**
-
-| ISBN     | Pealkiri         |
-| -------- | ---------------- |
-| 97812345 | Andmebaasid      |
-| 97867890 | Programmeerimine |
 
 Siin on **ISBN** Simple Key.
 
@@ -137,14 +105,6 @@ Composite Key koosneb kahest või enamast väljast, mis koos moodustavad unikaal
 * Koosneb mitmest atribuudist.
 * Kõik võtme osad koos peavad olema unikaalsed.
 
-### Näide
-
-Tabel: **ÕpilaseKursused**
-
-| ÕpilaseID | KursuseID | Hinne |
-| --------- | --------- | ----- |
-| 1         | MAT101    | 5     |
-| 1         | ENG202    | 4     |
 
 Siin moodustavad **ÕpilaseID + KursuseID** Composite Key.
 
@@ -165,14 +125,6 @@ Compound Key on Composite Key eriliik, kus kõik võtme osad on samuti Foreign K
 * Kõik väljad viitavad teiste tabelite võtmetele.
 * Kasutatakse sageli “many-to-many” seoste puhul.
 
-### Näide
-
-Tabel: **TellimusTooted**
-
-| TellimusID | TooteID | Kogus |
-| ---------- | ------- | ----- |
-| 1001       | 501     | 2     |
-| 1001       | 502     | 1     |
 
 Siin moodustavad **TellimusID + TooteID** Compound Key, sest mõlemad on Foreign Key-d.
 
@@ -193,13 +145,6 @@ Superkey on üks või mitu välja, mis võimaldavad tabeli rea unikaalselt tuvas
 * Võib sisaldada liigseid atribuute.
 * Candidate Key on Superkey minimaalne vorm.
 
-### Näide
-
-Tabel: **Töötajad**
-
-| TöötajaID | Isikukood   | Nimi |
-| --------- | ----------- | ---- |
-| 1         | 39801010011 | Mari |
 
 Võimalikud Superkey-d:
 
@@ -224,13 +169,7 @@ Candidate Key on minimaalne Superkey, mis identifitseerib rea unikaalselt.
 * Ei sisalda liigseid atribuute.
 * Tabelis võib olla mitu Candidate Key-d.
 
-### Näide
 
-Tabel: **Töötajad**
-
-| TöötajaID | Isikukood   | Nimi |
-| --------- | ----------- | ---- |
-| 1         | 39801010011 | Mari |
 
 Candidate Key-d:
 
@@ -256,13 +195,6 @@ Alternate Key on Candidate Key, mida ei valitud Primary Key-ks.
 * On samuti unikaalne.
 * Ei ole tabeli peamine võti.
 
-### Näide
-
-Tabel: **Töötajad**
-
-| TöötajaID | Isikukood   | Email                                   |
-| --------- | ----------- | --------------------------------------- |
-| 1         | 39801010011 | [mari@email.com](mailto:mari@email.com) |
 
 Kui Primary Key on **TöötajaID**, siis:
 
@@ -284,6 +216,263 @@ Kui Primary Key on **TöötajaID**, siis:
 | Superkey      | Identifitseerib rea unikaalselt               |
 | Candidate Key | Minimaalne Superkey                           |
 | Alternate Key | Candidate Key, mida ei valitud Primary Key-ks |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# SQL näited erinevate võtmete kohta
+
+```sql
+create database robert
+use robert
+
+create table telefonid(
+telefonid_id int primary key identity(1,1),
+telefoniNimetus varchar(20),
+kogus int,
+Kuupäev varchar(100),
+telefoniHind money)
+
+insert into telefonid(telefoniNimetus, kogus, Kuupäev, telefoniHind)
+values('iPhone 16', 2000, '2026-10-5', 200)
+
+insert into telefonid(telefoniNimetus, kogus, Kuupäev, telefoniHind)
+values('iPhone 17', 1000, '2026-11-2', 1200)
+
+insert into telefonid(telefoniNimetus, kogus, Kuupäev, telefoniHind)
+values('iPhone 15', 500, '2024-12-14', 600)
+```
+
+---
+
+# 1. Primary Key näide
+
+```sql
+create table telefonid(
+telefonid_id int primary key identity(1,1),
+telefoniNimetus varchar(20),
+kogus int,
+Kuupäev varchar(100),
+telefoniHind money)
+```
+
+Selgitus:
+
+* `telefonid_id` on Primary Key.
+* Iga telefon saab unikaalse ID.
+
+<img width="582" height="491" alt="{06E859B5-B38C-41E1-8FC0-3FFC99CF601B}" src="https://github.com/user-attachments/assets/f9270ab2-e323-4823-95a6-f51a1bd4a04c" />
+
+
+---
+
+# 2. Foreign Key näide
+
+```sql
+create table tellimused(
+tellimusID int primary key identity(1,1),
+telefonid_id int,
+kogus int,
+
+foreign key (telefonid_id)
+references telefonid(telefonid_id)
+)
+```
+
+Selgitus:
+
+* `telefonid_id` on Foreign Key.
+* See viitab tabeli `telefonid` Primary Key-le.
+
+<img width="405" height="277" alt="{FEB21D5E-26BA-4F8C-8626-5B00AEEC584D}" src="https://github.com/user-attachments/assets/3083f881-7c33-4ae0-96fb-ac8782104771" />
+
+
+---
+
+# 3. Unique Key näide
+
+```sql
+create table kasutajad(
+kasutajaID int primary key identity(1,1),
+email varchar(100) unique
+)
+```
+
+Selgitus:
+
+* Sama e-mail ei saa korduda.
+
+Sisesatsin tabelise enda meili:
+<img width="484" height="348" alt="{259D29E4-9A8C-4012-BFE6-562B0135F908}" src="https://github.com/user-attachments/assets/5cd82052-40d8-43a2-beac-db7edc1f47f6" />
+
+Sisestasin uuesti samat meili:
+<img width="1294" height="375" alt="{041FF974-4125-4D3A-BC98-5A72E2653BD2}" src="https://github.com/user-attachments/assets/e5419d87-aa1d-41e2-89d3-087b4f52e27d" />
+
+---
+
+# 4. Simple Key näide
+
+```sql
+create table kliendid(
+klientID int primary key,
+nimi varchar(50)
+)
+```
+
+Selgitus:
+
+* `klientID` koosneb ainult ühest väljast.
+* See on Simple Key.
+
+
+
+<img width="373" height="369" alt="{E2507410-97EE-4BDB-8989-3061E2EBB0C4}" src="https://github.com/user-attachments/assets/5c4ba23a-0413-45bf-8028-61dfce0deb28" />
+
+<img width="1165" height="456" alt="{09222993-3ADF-49AA-8F9C-1F5BAB138BA4}" src="https://github.com/user-attachments/assets/b7edcd1d-a7b9-4b2b-b609-370e88217300" />
+
+
+# 5. Composite Key näide
+
+```sql
+create table kursused(
+opilaneID int,
+kursusID int,
+hinne int,
+
+primary key(opilaneID, kursusID)
+)
+```
+
+Selgitus:
+
+* Võti koosneb kahest väljast.
+* Mõlemad väljad koos peavad olema unikaalsed.
+
+---
+
+# 6. Compound Key näide
+
+```sql
+create table telefoniTellimus(
+telefonid_id int,
+tellimusID int,
+kogus int,
+
+primary key(telefonid_id, tellimusID),
+
+foreign key (telefonid_id)
+references telefonid(telefonid_id),
+
+foreign key (tellimusID)
+references tellimused(tellimusID)
+)
+```
+
+Selgitus:
+
+* Primary Key koosneb kahest Foreign Key-st.
+* See on Compound Key.
+
+---
+
+# 7. Superkey näide
+
+```sql
+create table tootajad(
+tootajaID int primary key,
+isikukood varchar(20) unique,
+nimi varchar(50)
+)
+```
+
+Superkey näited:
+
+* `tootajaID`
+* `isikukood`
+* `tootajaID + nimi`
+
+Selgitus:
+
+* Kõik need suudavad töötaja unikaalselt tuvastada.
+
+---
+
+# 8. Candidate Key näide
+
+```sql
+create table opilased(
+opilaseID int primary key,
+isikukood varchar(20) unique,
+email varchar(100) unique
+)
+```
+
+Candidate Key-d:
+
+* `opilaseID`
+* `isikukood`
+* `email`
+
+Selgitus:
+
+* Kõik väljad on unikaalsed.
+* Neist üks valitakse Primary Key-ks.
+
+---
+
+# 9. Alternate Key näide
+
+```sql
+create table raamatukogu(
+raamatuID int primary key,
+isbn varchar(30) unique,
+pealkiri varchar(100)
+)
+```
+
+Selgitus:
+
+* `raamatuID` on Primary Key.
+* `isbn` on Alternate Key, sest see on samuti unikaalne, kuid ei ole Primary Key.
+
+```
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Allikad 
 
