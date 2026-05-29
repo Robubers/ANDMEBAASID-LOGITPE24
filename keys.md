@@ -314,9 +314,11 @@ Selgitus:
 * Sama e-mail ei saa korduda.
 
 Sisesatsin tabelise enda meili:
+
 <img width="484" height="348" alt="{259D29E4-9A8C-4012-BFE6-562B0135F908}" src="https://github.com/user-attachments/assets/5cd82052-40d8-43a2-beac-db7edc1f47f6" />
 
 Sisestasin uuesti samat meili:
+
 <img width="1294" height="375" alt="{041FF974-4125-4D3A-BC98-5A72E2653BD2}" src="https://github.com/user-attachments/assets/e5419d87-aa1d-41e2-89d3-087b4f52e27d" />
 
 ---
@@ -336,8 +338,10 @@ Selgitus:
 * See on Simple Key.
 
 
-
+Kontrollin Simple Key toimimist nii:
 <img width="373" height="369" alt="{E2507410-97EE-4BDB-8989-3061E2EBB0C4}" src="https://github.com/user-attachments/assets/5c4ba23a-0413-45bf-8028-61dfce0deb28" />
+
+Sisestasin sama ID, SQL annab vea, sest klientID on Primary Key ja peab olema unikaalne:
 
 <img width="1165" height="456" alt="{09222993-3ADF-49AA-8F9C-1F5BAB138BA4}" src="https://github.com/user-attachments/assets/b7edcd1d-a7b9-4b2b-b609-370e88217300" />
 
@@ -358,6 +362,17 @@ Selgitus:
 
 * Võti koosneb kahest väljast.
 * Mõlemad väljad koos peavad olema unikaalsed.
+
+Lisasin andmed tabelisse:
+
+<img width="499" height="359" alt="{59AAE85A-FF34-4755-B135-F390E602803F}" src="https://github.com/user-attachments/assets/cf18b943-c13a-4643-8d42-d68e657701c2" />
+
+
+Proovisin lisada sama kombinatsioon uuesti, SQL andis vea sest sama kombinatsioon ei tohi korduda:
+
+<img width="536" height="562" alt="{97131917-8411-4F5F-BE7B-67171542D370}" src="https://github.com/user-attachments/assets/200c1f77-101e-4c2a-96a0-b37e4972506b" />
+
+
 
 ---
 
@@ -406,6 +421,8 @@ Selgitus:
 
 * Kõik need suudavad töötaja unikaalselt tuvastada.
 
+
+
 ---
 
 # 8. Candidate Key näide
@@ -417,6 +434,8 @@ isikukood varchar(20) unique,
 email varchar(100) unique
 )
 ```
+
+
 
 Candidate Key-d:
 
@@ -430,6 +449,7 @@ Selgitus:
 * Neist üks valitakse Primary Key-ks.
 
 ---
+
 
 # 9. Alternate Key näide
 
