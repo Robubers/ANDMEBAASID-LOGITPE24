@@ -6,19 +6,22 @@
 
 Mine..
 
-<img width="953" height="752" alt="{99F95B14-8C16-4B2A-9AAC-B9BC2CA1B3EC}" src="https://github.com/user-attachments/assets/e9ef561f-cb4d-4e2d-80d9-46160074d6bd" />
+<img width="1920" height="1080" alt="{F536BD6C-8AC7-460B-BB5E-0BE9289BCA1F}" src="https://github.com/user-attachments/assets/57a41b1f-0324-480c-aeed-6cf162308766" />
+
 Mine..
 
-<img width="1369" height="861" alt="{AA1C662E-24E8-47C3-B606-A29DD4ED1154}" src="https://github.com/user-attachments/assets/48e67e7c-ab9f-4d62-b151-ceb004d22ab5" />
+<img width="1920" height="1080" alt="{A18235BE-8B22-43DD-A77F-EB080B42CEC4}" src="https://github.com/user-attachments/assets/5adde0a2-d9c6-4f56-b3d5-1f160a58f3f8" />
+
+
 Mine..
 
-<img width="1568" height="721" alt="{DED39447-36E2-4207-9D37-A2468504FC01}" src="https://github.com/user-attachments/assets/810d1975-a1d2-4119-8d91-4e7318699237" />
+<img width="1920" height="1080" alt="{E8E97E6A-6D85-4DE8-B364-2E04B6A7C582}" src="https://github.com/user-attachments/assets/032a8377-2879-4d5e-8959-bca3f18191fe" />
+
 Mine..
 
 ### Kasutaja õiguste kontroll
 
-<img width="991" height="574" alt="{472C6073-2BE8-45DE-992B-8D8EF93F6BE2}" src="https://github.com/user-attachments/assets/96ac18f8-ee07-47c1-9dec-34b165177ecc" />
-Muuda õigused..
-<img width="1423" height="475" alt="{ABDA3A72-C1C4-45F5-A7CC-ABBD6FD655F8}" src="https://github.com/user-attachments/assets/127d2987-8684-4261-8048-5f8a70eb9387" />
+<img width="1920" height="1071" alt="{13ED2437-ED79-4AFD-A779-D53130DD8B9C}" src="https://github.com/user-attachments/assets/893ea9d6-7a4e-424e-9e26-bb8f7a8741f1" />
 
-**Tuleb sisse logida loodud kasutajana ning kontrollida kõiki määratud õigusi. Lisaks tuleb kontrollida ka vähemalt ühte õigust, mis ei ole kasutajale määratud.**
+
+
