@@ -1,3 +1,7 @@
+# Teised Konspektid 
+[PROTSEDUURID](PROTSEDUURID.md) | [Select_laused](mockaroo.md) | [Kasutajate_loomine SQL server](kasutaja.md) | [triggerid](Trigerid.md) | [Kodutöö - keys](keys.md) | [Kasutaja loomine XAMPP-is](kasutajaXampp.md) |
+[vaaded](vaade.md)
+
 ## Vaade (inglise keeles view) on SQL-is sisuliselt „virtuaalne tabel“. Erinevalt tavalisest andmebaasi tabelist ei hoia vaade endas füüsilisi andmeid. Selle asemel sisaldab see salvestatud SQL-päringut (SELECT), mis käivitatakse dünaamiliselt iga kord, kui sa vaadet pärited.
 Võid mõelda vaatest kui salvestatud aknast või filtrist, mille kaudu sa olemasolevaid andmeid vaatad.
 
