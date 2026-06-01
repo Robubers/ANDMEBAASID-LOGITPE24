@@ -422,6 +422,19 @@ Selgitus:
 * Kõik need suudavad töötaja unikaalselt tuvastada.
 
 
+Lisan andmed tabelisse:
+<img width="506" height="139" alt="{7AE643FB-D4F2-4704-A2C7-F5AA4145084D}" src="https://github.com/user-attachments/assets/02f72e75-275d-4493-b3b4-1f386847116e" />
+
+Kontrollin töötaja ID järgi:
+<img width="300" height="75" alt="{93AB7825-5AF2-405F-9C65-2DAF9D00A8A2}" src="https://github.com/user-attachments/assets/fab5eba2-c5e1-494a-a333-d2ee69adbf2b" />
+
+
+Kontrollin isikukoodi järgi:
+<img width="354" height="161" alt="{36322B9C-B767-49AC-A1C3-32562D6CA61C}" src="https://github.com/user-attachments/assets/7bbe098d-873b-4dbd-b0ac-1527d8c73020" />
+
+Kontrollin kombinatsiooni:
+<img width="327" height="256" alt="{E362CB3F-96BB-4222-ACB3-C88B606D6623}" src="https://github.com/user-attachments/assets/ecb8af1c-e5c8-40c5-bb6e-709c5c7b69fd" />
+
 
 ---
 
@@ -448,6 +461,23 @@ Selgitus:
 * Kõik väljad on unikaalsed.
 * Neist üks valitakse Primary Key-ks.
 
+Sisestasin andmeid: 
+<img width="442" height="152" alt="{59E69E72-F1AD-46F0-805A-8CDA353C3666}" src="https://github.com/user-attachments/assets/6fdb56fb-a167-4441-a75d-4b1472c13069" />
+
+Kontrolli opilaseID järgi:
+<img width="333" height="250" alt="{89DD3F68-D000-4721-807D-79224473B48B}" src="https://github.com/user-attachments/assets/1b2214d9-e03d-4b07-87c0-9e1208c4c515" />
+
+Kontrolli isikukood järgi:
+<img width="410" height="210" alt="{ACE7E766-6D76-4C26-A258-41AF0D3017D4}" src="https://github.com/user-attachments/assets/7be415ec-6ff5-4e37-9adc-f06f9f8722d0" />
+
+Proovi lisada sama isikukood uuesti:
+<img width="1268" height="332" alt="{3E0B5C72-A625-4365-B1D3-BBFA1A058701}" src="https://github.com/user-attachments/assets/f04cca28-482f-4b96-9b92-469a58f2ac6e" />
+Annab vea
+
+Samuti proovin sama e-maili:
+<img width="1228" height="353" alt="{09FA8CA3-A2E2-452A-AA83-82E69A528C0D}" src="https://github.com/user-attachments/assets/6e38665e-a208-4b90-becf-2ece8348711e" />
+Ka see annab vea. 
+
 ---
 
 
@@ -465,6 +495,15 @@ Selgitus:
 
 * `raamatuID` on Primary Key.
 * `isbn` on Alternate Key, sest see on samuti unikaalne, kuid ei ole Primary Key.
+
+Lisasin andmed tabelisse:
+<img width="454" height="121" alt="{A1682F64-4F8B-47A0-9EA7-0CE32D4B5835}" src="https://github.com/user-attachments/assets/ed8e8281-ef51-4e91-ab92-26b24c1dba7b" />
+
+Proovin lisada sama ISBN uuesti:
+
+<img width="1209" height="348" alt="{7597E948-3D0D-4028-BE08-7B635281DF12}" src="https://github.com/user-attachments/assets/bc4b16cd-1be6-4047-a5da-2898da274bc5" />
+
+
 
 ```
 ```
