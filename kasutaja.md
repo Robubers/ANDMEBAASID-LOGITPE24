@@ -18,7 +18,7 @@ Selle puhul kasutatakse samu kasutajaandmeid, millega logitakse sisse Windows op
 >Määratakse eraldi kasutajanimi ja parool. 
 >Sobib veebirakenduste jaoks. 
 ---------------------------------------------------------------
-**Näide kasutajast: DirectorIrina. Parool: director**
+**Näide kasutajast: sekretarRobert. Parool: petrosyan**
 ----------------------------------------------------------------
 ## Kasutaja loomine SQL Serveris
 1. Serveritaseme kasutaja loomine (Login)
@@ -30,7 +30,9 @@ Tee paremklikk ja vali:
 
 New Login...
 
-<img width="692" height="619" alt="{F81FB66F-5AD4-4F72-A4B9-ABE3DFC8FBE8}" src="https://github.com/user-attachments/assets/8dda8181-97bd-4dab-8b0c-dfc40ca2242c" />
+<img width="722" height="654" alt="{379A48B3-AD78-4E12-AFE6-D6E40D23552B}" src="https://github.com/user-attachments/assets/d6e0ff5c-4c1e-45d6-8fc0-368e67472d14" />
+
+
 
 Harjutamiseks võib eemaldada linnukese:  User must change password at next login.
 
@@ -39,7 +41,8 @@ Menüüst Server Roles saab määrata serveri üldised õigused.
 
 Tavaliselt piisab rollist: public
 
-<img width="608" height="624" alt="{74E6C2F2-D279-4893-BA71-F894D42CCC6E}" src="https://github.com/user-attachments/assets/32010587-ed96-44ae-bfdc-0f96f35c081a" />
+
+<img width="716" height="652" alt="{36944406-EFB1-49BE-88A5-9761A1C595BA}" src="https://github.com/user-attachments/assets/cfe79e82-9efe-430c-ac96-ddf3085643b5" /> 
 
 2. Andmebaasi kasutaja loomine (User)
 Ava:
@@ -48,7 +51,10 @@ Database → Security → Users
 Tee paremklikk:  New User...
 
 Seosta kasutaja loginiga
-<img width="432" height="305" alt="{8DE41755-97AF-4FCF-8B94-566BCB6762AA}" src="https://github.com/user-attachments/assets/aa6d46c4-9d30-4733-ad85-5efb07b48b04" />
+
+<img width="299" height="125" alt="{491E93CD-9217-4430-9B38-11D133EA59C0}" src="https://github.com/user-attachments/assets/441ad5ab-4151-448c-9ba6-3c1a11e8d007" />
+
+
 
 **Membership ja õigused**
 Menüüst Membership saab määrata kasutaja rollid.
@@ -58,21 +64,24 @@ Menüüst Membership saab määrata kasutaja rollid.
 >db_datawriter → võib kirjutada INSERT, UPDATE, DELETE
 
 
-<img width="704" height="359" alt="{8E881781-2794-4125-8A0E-792277A44AB1}" src="https://github.com/user-attachments/assets/ccfbb016-cbab-4723-8144-83b1e519b719" />
+<img width="702" height="651" alt="{5938AA54-D649-4E56-8394-9FA74E9D2952}" src="https://github.com/user-attachments/assets/3e958787-f1b7-45f8-99fa-acf9b31e6a60" />
 
 -----------------------------------------------------------------------
 ## Kasutaja õiguste kontroll
 
-1. tuleb sisselogida kasutajana directorIrina. Connect--> Database Engine
+1. tuleb sisselogida kasutajana sekretarRobert. Connect--> Database Engine
 
-   <img width="475" height="509" alt="{0B7D6CFF-C5A1-4787-AB29-B47C84FC8AD5}" src="https://github.com/user-attachments/assets/c657826a-af2c-4327-80c9-6a231056d101" />
+<img width="474" height="514" alt="{70E245D6-DE3A-40D9-8931-798033A1DD73}" src="https://github.com/user-attachments/assets/3d0feb71-dc26-4de9-95c0-94b78f8e7489" />
+
 
 2. saab tabeli sisu näha ja sisestada uus kiri.
-   <img width="1304" height="617" alt="{C560C57E-771A-4E21-A4C9-84D3942377A1}" src="https://github.com/user-attachments/assets/ca32536c-fac8-42c6-af6e-86db07f81fb2" />
+  <img width="994" height="531" alt="{C685B554-1915-4AA5-8D5F-98AAD65AA21A}" src="https://github.com/user-attachments/assets/4a1d9c80-fee1-4a68-a6bf-705d611d848b" />
+
 
 3. kontrollime tegevus, mis ei ole lubatud kasutajale, näiteks tabeli loomine.
 
-<img width="1350" height="704" alt="{5CC712EA-AE9B-4D4A-B3E8-02F2C462230E}" src="https://github.com/user-attachments/assets/3d88b065-65b8-4b25-9a8c-fd7d6553acfd" />
+<img width="1004" height="504" alt="{E3013AD3-EA82-40A8-BBB2-C6050B75C85A}" src="https://github.com/user-attachments/assets/97bd6852-ec07-4e6a-8109-29a122f37c85" />
+
 
 
 
@@ -97,17 +106,17 @@ GRANT käsuga antakse kasutajale õigused.
 --ainult kustutada ja uuendada tabelit 
 --(DELETE, UPDATE, SELECT)
 
-GRANT DELETE ON puhkus TO directorIrina;
-GRANT UPDATE ON puhkus TO directorIrina;
-GRANT SELECT ON puhkus TO directorIrina;
+GRANT DELETE ON puhkus TO sekretarRobert;
+GRANT UPDATE ON puhkus TO sekretarRobert;
+GRANT SELECT ON puhkus TO sekretarRobert;
 
 --keelame INSERT
-DENY INSERT ON puhkus TO directorIrina;
-
+DENY INSERT ON puhkus TO sekretarRobert;
 ```
 
 
-<img width="832" height="696" alt="{A72F3912-2C8A-4D1F-9906-1ABE1AFC2CED}" src="https://github.com/user-attachments/assets/4b6946ba-ef85-4e85-a985-c4db74bb09c5" />
+<img width="834" height="588" alt="{E3B04D42-A4B6-43ED-A766-98A9DA775A50}" src="https://github.com/user-attachments/assets/56c61f45-685e-41b2-bd53-274d2b323ef9" />
+
 
 
 Käsk	Tähendus
@@ -116,25 +125,9 @@ INSERT	Lisamine
 UPDATE	Muutmine
 DELETE	Kustutamine
 
-<img width="1139" height="788" alt="{7D4AB79A-03CD-4E4A-A834-E2D6E2ADBE68}" src="https://github.com/user-attachments/assets/e06dd536-a5e5-4eb4-895c-ae61d0cb22fd" />
+<img width="1023" height="646" alt="{9F89EBDD-498A-4FD7-83A2-F03756B74532}" src="https://github.com/user-attachments/assets/675433b6-216f-46c4-a661-2971c5c722f6" />
 
 
 
-    
-Ülesanne 1:
-Luua andmebaas: MovieBase
 
-Luua tabelid: 
 
-movies (id, moviesNimi, moviesYear, movieDir и movieCost).
-guest (id, name)
-Lisada vähemalt 7 kirjet.
-
-Luua kasutaja Produtsent parooliga director, kellel on järgmised õigused:
-Õigus vaadata ja uuendada tabeli movies välju movieDir ja movieCost + lisada üks enda valitud privileeg.
-Õigus vaadata ja lisada kirjeid tabelisse guest.
-Keela andmete kustutamine tabelis.
-Vihje! UPDATE õigused parem lubada SQL käsuga
-GRANT UPDATE (movieCost, movieDir)
-ON movies
-TO Produtsent;
