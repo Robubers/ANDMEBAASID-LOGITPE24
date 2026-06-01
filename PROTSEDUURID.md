@@ -1,3 +1,4 @@
+```sql
 select * from categories
 --proceduur, mis täidab tabeli
 CREATE PROCEDURE lisaKategooria
@@ -11,9 +12,11 @@ END
 --kutse
 
 EXEC lisaKategooria 'test';
+```
 
---protseduur mis kustutab tabelist id järgi 
+# protseduur mis kustutab tabelist id järgi 
 
+```sql
 Create procedure kustutaIdJargi
 @id int
 AS
@@ -24,11 +27,12 @@ BEGIN
 END
 --kutse
 EXEC kustutaIdjargi 6;
-
+```
 
 --otsing 
 --protseduur mis otsib kõik kategooriad sisestatud 1 tähte 
 
+```sql
 CREATE PROCEDURE otsing1taht
 @taht char(1)
 AS
@@ -42,8 +46,12 @@ END
 SELECT * FROM categories
 EXEC otsing1taht 'r'
 
---proceduur, mis uuendab nimed sisestatud id järgi
+```
 
+
+# proceduur, mis uuendab nimed sisestatud id järgi
+
+```sql
 CREATE PROCEDURE uuendaKategooria 
 @id int,
 @uuendatudNimi varchar(20)
@@ -59,7 +67,7 @@ END
 
 EXEC uuendaKategooria 8, 'jope'
 
---iseseisavlt: vali tabel ja kirjuta 3 protseduuri, käivita!
+```
 
 ---
 
@@ -67,6 +75,8 @@ EXEC uuendaKategooria 8, 'jope'
 
 
 # Protseduur andmete lisamiseks 
+
+```sql
 CREATE PROCEDURE lisaToode
     @nimetus varchar(20),
     @tootja varchar(20),
@@ -79,8 +89,11 @@ BEGIN
 
     SELECT * FROM toode;
 END;
+```
 
 # OUTPUT parameetrid (min ja max väärtus)
+
+```sql
 CREATE PROCEDURE minmaxHind
     @minHind MONEY OUTPUT,
     @maxHind MONEY OUTPUT
@@ -91,9 +104,12 @@ BEGIN
         @maxHind = MAX(toodeHind)
     FROM toode;
 END;
+```
 
 # Dünaamiline SQL protseduuris (ALTER TABLE)
 # Protseduur veeru lisamiseks või kustutamiseks 
+
+```sql
 CREATE PROCEDURE muudatus
     @tegevus varchar(10),
     @tabelinimi varchar(25),
@@ -114,13 +130,14 @@ BEGIN
     PRINT @sqltegevus;
     EXEC (@sqltegevus);
 END;
-
+```
 
 # Protseduur, mis kuvab toodete nime, hinna ja lisab automaatselt hinnangu
+
 kui hind < 2 → "soodne"
 muidu → "kallis"
 
-
+```sql
 CREATE PROCEDURE kuvaTootedHinnaKategooriaga
 AS
 BEGIN
@@ -133,3 +150,4 @@ BEGIN
         END AS hinnaKategooria
     FROM toode;
 END;
+```
