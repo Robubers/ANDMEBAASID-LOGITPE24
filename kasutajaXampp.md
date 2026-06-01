@@ -2,7 +2,8 @@
 
 1. Server-->Kasutajate kontod
 
-<img width="967" height="979" alt="{FFC652E0-EFF2-4604-88E1-B13BBB4E56BF}" src="https://github.com/user-attachments/assets/855d17ee-e891-4d88-9cb9-e2f24318bb39" />
+<img width="1920" height="1080" alt="{4405E810-CA7F-46C1-A83D-E0F9C0C6A855}" src="https://github.com/user-attachments/assets/9b8619dc-90da-4809-8f56-a34114a16da6" />
+
 Mine..
 
 <img width="953" height="752" alt="{99F95B14-8C16-4B2A-9AAC-B9BC2CA1B3EC}" src="https://github.com/user-attachments/assets/e9ef561f-cb4d-4e2d-80d9-46160074d6bd" />
