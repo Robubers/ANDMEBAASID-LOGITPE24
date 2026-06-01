@@ -23,5 +23,18 @@ Mine..
 
 <img width="1920" height="1071" alt="{13ED2437-ED79-4AFD-A779-D53130DD8B9C}" src="https://github.com/user-attachments/assets/893ea9d6-7a4e-424e-9e26-bb8f7a8741f1" />
 
+<img width="1920" height="1080" alt="{375CF56E-CF9F-4851-AD03-447010E5B8C9}" src="https://github.com/user-attachments/assets/de2d9d1b-048f-4e9a-be87-fd3d84bf333f" />
+
+### Logisin Kasutaja kontosse
+
+
+<img width="1920" height="1080" alt="{A5933ACD-8737-4B60-9FC1-3E142AAA34DC}" src="https://github.com/user-attachments/assets/d3c926e2-9afb-453e-a7d9-1cb39be4eb50" />
+
+
+### Kuna keelasin ABSOLUUTSELt igat asja kasutajal teha selles tabelis siis vajutadas tabelile brands annab see viga 
+
+<img width="1920" height="1080" alt="{909042A4-7895-4CC0-81C2-88EDF3EDA40D}" src="https://github.com/user-attachments/assets/c6415038-3696-450f-a848-34c480886e0d" />
+
+
 
 
