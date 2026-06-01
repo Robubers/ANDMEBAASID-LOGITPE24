@@ -26,215 +26,7 @@ Primary Key on väli või väljade kombinatsioon, mis identifitseerib iga tabeli
 
 Siin on **ÕpilaseID** Primary Key, sest iga väärtus on unikaalne.
 
----
-
-## 2. Foreign Key (Võõrvõti)
-
-### Definitsioon
-
-Foreign Key on väli, mis viitab teise tabeli Primary Key-le.
-
-### Milleks kasutatakse
-
-* Tabelite omavaheliseks ühendamiseks.
-* Andmete tervikluse tagamiseks.
-
-### Mille poolest erineb teistest võtmetest
-
-* Ei pea olema unikaalne.
-* Võib sisaldada korduvaid väärtusi.
-* Viitab teise tabeli võtmele.
-
-
-
-Siin on **ÕpilaseID** Foreign Key, sest see viitab tabeli Õpilased väljale ÕpilaseID.
-
----
-
-## 3. Unique Key
-
-### Definitsioon
-
-Unique Key tagab, et kõik väärtused veerus on unikaalsed.
-
-### Milleks kasutatakse
-
-* Duplikaatide vältimiseks.
-* Alternatiivsete unikaalsete tunnuste määramiseks.
-
-### Mille poolest erineb teistest võtmetest
-
-* Tabelis võib olla mitu Unique Key-d.
-* Võib sisaldada NULL väärtusi (sõltub andmebaasisüsteemist).
-* Ei ole tabeli peamine identifikaator nagu Primary Key.
-
-
-
-Siin on **Email** Unique Key, sest sama e-posti aadress ei tohi korduda.
-
----
-
-## 4. Simple Key
-
-### Definitsioon
-
-Simple Key koosneb ainult ühest atribuudist ehk ühest veerust.
-
-### Milleks kasutatakse
-
-* Ridade lihtsaks identifitseerimiseks.
-
-### Mille poolest erineb teistest võtmetest
-
-* Sisaldab ainult ühte välja.
-* Vastand Composite Key-le, mis koosneb mitmest väljast.
-
-
-
-Siin on **ISBN** Simple Key.
-
----
-
-## 5. Composite Key
-
-### Definitsioon
-
-Composite Key koosneb kahest või enamast väljast, mis koos moodustavad unikaalse võtme.
-
-### Milleks kasutatakse
-
-* Kui üks väli üksi ei ole unikaalne.
-
-### Mille poolest erineb teistest võtmetest
-
-* Koosneb mitmest atribuudist.
-* Kõik võtme osad koos peavad olema unikaalsed.
-
-
-Siin moodustavad **ÕpilaseID + KursuseID** Composite Key.
-
----
-
-## 6. Compound Key
-
-### Definitsioon
-
-Compound Key on Composite Key eriliik, kus kõik võtme osad on samuti Foreign Key-d.
-
-### Milleks kasutatakse
-
-* Seostabelites mitme tabeli ühendamiseks.
-
-### Mille poolest erineb teistest võtmetest
-
-* Kõik väljad viitavad teiste tabelite võtmetele.
-* Kasutatakse sageli “many-to-many” seoste puhul.
-
-
-Siin moodustavad **TellimusID + TooteID** Compound Key, sest mõlemad on Foreign Key-d.
-
----
-
-## 7. Superkey
-
-### Definitsioon
-
-Superkey on üks või mitu välja, mis võimaldavad tabeli rea unikaalselt tuvastada.
-
-### Milleks kasutatakse
-
-* Unikaalsete identifikaatorite määramiseks.
-
-### Mille poolest erineb teistest võtmetest
-
-* Võib sisaldada liigseid atribuute.
-* Candidate Key on Superkey minimaalne vorm.
-
-
-Võimalikud Superkey-d:
-
-* TöötajaID
-* Isikukood
-* TöötajaID + Nimi
-
----
-
-## 8. Candidate Key
-
-### Definitsioon
-
-Candidate Key on minimaalne Superkey, mis identifitseerib rea unikaalselt.
-
-### Milleks kasutatakse
-
-* Primary Key kandidaadina.
-
-### Mille poolest erineb teistest võtmetest
-
-* Ei sisalda liigseid atribuute.
-* Tabelis võib olla mitu Candidate Key-d.
-
-
-
-Candidate Key-d:
-
-* TöötajaID
-* Isikukood
-
-Mõlemad on unikaalsed ja minimaalsed.
-
----
-
-## 9. Alternate Key
-
-### Definitsioon
-
-Alternate Key on Candidate Key, mida ei valitud Primary Key-ks.
-
-### Milleks kasutatakse
-
-* Täiendava unikaalsuse tagamiseks.
-
-### Mille poolest erineb teistest võtmetest
-
-* On samuti unikaalne.
-* Ei ole tabeli peamine võti.
-
-
-Kui Primary Key on **TöötajaID**, siis:
-
-* **Isikukood** võib olla Alternate Key.
-* **Email** võib samuti olla Alternate Key, kui see on unikaalne.
-
----
-
-# Kokkuvõte
-
-| Võti          | Peamine omadus                                |
-| ------------- | --------------------------------------------- |
-| Primary Key   | Peamine unikaalne identifikaator              |
-| Foreign Key   | Viitab teise tabeli võtmele                   |
-| Unique Key    | Väärtused peavad olema unikaalsed             |
-| Simple Key    | Koosneb ühest väljast                         |
-| Composite Key | Koosneb mitmest väljast                       |
-| Compound Key  | Composite Key, mille osad on Foreign Key-d    |
-| Superkey      | Identifitseerib rea unikaalselt               |
-| Candidate Key | Minimaalne Superkey                           |
-| Alternate Key | Candidate Key, mida ei valitud Primary Key-ks |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# 1. Primary Key näide
 
 # SQL näited erinevate võtmete kohta
 
@@ -259,10 +51,6 @@ insert into telefonid(telefoniNimetus, kogus, Kuupäev, telefoniHind)
 values('iPhone 15', 500, '2024-12-14', 600)
 ```
 
----
-
-# 1. Primary Key näide
-
 ```sql
 create table telefonid(
 telefonid_id int primary key identity(1,1),
@@ -280,7 +68,30 @@ Selgitus:
 <img width="582" height="491" alt="{06E859B5-B38C-41E1-8FC0-3FFC99CF601B}" src="https://github.com/user-attachments/assets/f9270ab2-e323-4823-95a6-f51a1bd4a04c" />
 
 
+
+
 ---
+
+## 2. Foreign Key (Võõrvõti)
+
+### Definitsioon
+
+Foreign Key on väli, mis viitab teise tabeli Primary Key-le.
+
+### Milleks kasutatakse
+
+* Tabelite omavaheliseks ühendamiseks.
+* Andmete tervikluse tagamiseks.
+
+### Mille poolest erineb teistest võtmetest
+
+* Ei pea olema unikaalne.
+* Võib sisaldada korduvaid väärtusi.
+* Viitab teise tabeli võtmele.
+
+
+
+Siin on **ÕpilaseID** Foreign Key, sest see viitab tabeli Õpilased väljale ÕpilaseID.
 
 # 2. Foreign Key näide
 
@@ -303,7 +114,29 @@ Selgitus:
 <img width="405" height="277" alt="{FEB21D5E-26BA-4F8C-8626-5B00AEEC584D}" src="https://github.com/user-attachments/assets/3083f881-7c33-4ae0-96fb-ac8782104771" />
 
 
+
 ---
+
+## 3. Unique Key
+
+### Definitsioon
+
+Unique Key tagab, et kõik väärtused veerus on unikaalsed.
+
+### Milleks kasutatakse
+
+* Duplikaatide vältimiseks.
+* Alternatiivsete unikaalsete tunnuste määramiseks.
+
+### Mille poolest erineb teistest võtmetest
+
+* Tabelis võib olla mitu Unique Key-d.
+* Võib sisaldada NULL väärtusi (sõltub andmebaasisüsteemist).
+* Ei ole tabeli peamine identifikaator nagu Primary Key.
+
+
+
+Siin on **Email** Unique Key, sest sama e-posti aadress ei tohi korduda.
 
 # 3. Unique Key näide
 
@@ -326,7 +159,27 @@ Sisestasin uuesti samat meili:
 
 <img width="1294" height="375" alt="{041FF974-4125-4D3A-BC98-5A72E2653BD2}" src="https://github.com/user-attachments/assets/e5419d87-aa1d-41e2-89d3-087b4f52e27d" />
 
+
 ---
+
+## 4. Simple Key
+
+### Definitsioon
+
+Simple Key koosneb ainult ühest atribuudist ehk ühest veerust.
+
+### Milleks kasutatakse
+
+* Ridade lihtsaks identifitseerimiseks.
+
+### Mille poolest erineb teistest võtmetest
+
+* Sisaldab ainult ühte välja.
+* Vastand Composite Key-le, mis koosneb mitmest väljast.
+
+
+
+Siin on **ISBN** Simple Key.
 
 # 4. Simple Key näide
 
@@ -349,6 +202,29 @@ Kontrollin Simple Key toimimist nii:
 Sisestasin sama ID, SQL annab vea, sest klientID on Primary Key ja peab olema unikaalne:
 
 <img width="1165" height="456" alt="{09222993-3ADF-49AA-8F9C-1F5BAB138BA4}" src="https://github.com/user-attachments/assets/b7edcd1d-a7b9-4b2b-b609-370e88217300" />
+
+
+
+
+---
+
+## 5. Composite Key
+
+### Definitsioon
+
+Composite Key koosneb kahest või enamast väljast, mis koos moodustavad unikaalse võtme.
+
+### Milleks kasutatakse
+
+* Kui üks väli üksi ei ole unikaalne.
+
+### Mille poolest erineb teistest võtmetest
+
+* Koosneb mitmest atribuudist.
+* Kõik võtme osad koos peavad olema unikaalsed.
+
+
+Siin moodustavad **ÕpilaseID + KursuseID** Composite Key.
 
 
 # 5. Composite Key näide
@@ -381,6 +257,25 @@ Proovisin lisada sama kombinatsioon uuesti, SQL andis vea sest sama kombinatsioo
 
 ---
 
+## 6. Compound Key
+
+### Definitsioon
+
+Compound Key on Composite Key eriliik, kus kõik võtme osad on samuti Foreign Key-d.
+
+### Milleks kasutatakse
+
+* Seostabelites mitme tabeli ühendamiseks.
+
+### Mille poolest erineb teistest võtmetest
+
+* Kõik väljad viitavad teiste tabelite võtmetele.
+* Kasutatakse sageli “many-to-many” seoste puhul.
+
+
+Siin moodustavad **TellimusID + TooteID** Compound Key, sest mõlemad on Foreign Key-d.
+
+
 # 6. Compound Key näide
 
 ```sql
@@ -404,7 +299,31 @@ Selgitus:
 * Primary Key koosneb kahest Foreign Key-st.
 * See on Compound Key.
 
+
+
 ---
+
+## 7. Superkey
+
+### Definitsioon
+
+Superkey on üks või mitu välja, mis võimaldavad tabeli rea unikaalselt tuvastada.
+
+### Milleks kasutatakse
+
+* Unikaalsete identifikaatorite määramiseks.
+
+### Mille poolest erineb teistest võtmetest
+
+* Võib sisaldada liigseid atribuute.
+* Candidate Key on Superkey minimaalne vorm.
+
+
+Võimalikud Superkey-d:
+
+* TöötajaID
+* Isikukood
+* TöötajaID + Nimi
 
 # 7. Superkey näide
 
@@ -442,6 +361,30 @@ Kontrollin kombinatsiooni:
 
 
 ---
+
+## 8. Candidate Key
+
+### Definitsioon
+
+Candidate Key on minimaalne Superkey, mis identifitseerib rea unikaalselt.
+
+### Milleks kasutatakse
+
+* Primary Key kandidaadina.
+
+### Mille poolest erineb teistest võtmetest
+
+* Ei sisalda liigseid atribuute.
+* Tabelis võib olla mitu Candidate Key-d.
+
+
+
+Candidate Key-d:
+
+* TöötajaID
+* Isikukood
+
+Mõlemad on unikaalsed ja minimaalsed.
 
 # 8. Candidate Key näide
 
@@ -483,7 +426,31 @@ Samuti proovin sama e-maili:
 <img width="1228" height="353" alt="{09FA8CA3-A2E2-452A-AA83-82E69A528C0D}" src="https://github.com/user-attachments/assets/6e38665e-a208-4b90-becf-2ece8348711e" />
 Ka see annab vea. 
 
+
+
 ---
+
+## 9. Alternate Key
+
+### Definitsioon
+
+Alternate Key on Candidate Key, mida ei valitud Primary Key-ks.
+
+### Milleks kasutatakse
+
+* Täiendava unikaalsuse tagamiseks.
+
+### Mille poolest erineb teistest võtmetest
+
+* On samuti unikaalne.
+* Ei ole tabeli peamine võti.
+
+
+Kui Primary Key on **TöötajaID**, siis:
+
+* **Isikukood** võib olla Alternate Key.
+* **Email** võib samuti olla Alternate Key, kui see on unikaalne.
+
 
 
 # 9. Alternate Key näide
@@ -508,30 +475,25 @@ Proovin lisada sama ISBN uuesti:
 
 <img width="1209" height="348" alt="{7597E948-3D0D-4028-BE08-7B635281DF12}" src="https://github.com/user-attachments/assets/bc4b16cd-1be6-4047-a5da-2898da274bc5" />
 
-
-
-```
 ```
 
 
 
+---
 
+# Kokkuvõte
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+| Võti          | Peamine omadus                                |
+| ------------- | --------------------------------------------- |
+| Primary Key   | Peamine unikaalne identifikaator              |
+| Foreign Key   | Viitab teise tabeli võtmele                   |
+| Unique Key    | Väärtused peavad olema unikaalsed             |
+| Simple Key    | Koosneb ühest väljast                         |
+| Composite Key | Koosneb mitmest väljast                       |
+| Compound Key  | Composite Key, mille osad on Foreign Key-d    |
+| Superkey      | Identifitseerib rea unikaalselt               |
+| Candidate Key | Minimaalne Superkey                           |
+| Alternate Key | Candidate Key, mida ei valitud Primary Key-ks |
 
 
 
