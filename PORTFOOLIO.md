@@ -1,14 +1,8 @@
-# PORTFOOLIO
 
-[PROTSEDUURID](PROTSEDUURID.md) | [Select_laused](mockaroo.md) | [Kasutajate_loomine SQL server](kasutaja.md) | [Triggerid](Trigerid.md) | [Kodutöö - keys](keys.md) | [Kasutaja loomine XAMPP-is](kasutajaXampp.md)
-
-
-# Andmebaaside Õpetaja portfoolio ||| LOGITpe24
+# Andmebaaside Roberti portfoolio ||| LOGITpe24
 
 Andmebaasidega seotud sql kood ja konspektid
-
-[Kasutaja.XAMPP-is](kasutajaXampp.md) | [Select laused](select.md) | [Kasutaja loomine XAMPP-is](kasutajaXampp.md) | [Kasutaja loomine SQL Server](kasutaja.md) | [Triggerid](trigerid.md) | [Kodutöö - Keys](keys.md)
-
+[PROTSEDUURID](PROTSEDUURID.md) | [Select_laused](mockaroo.md) | [Kasutajate_loomine SQL server](kasutaja.md) | [Triggerid](Trigerid.md) | [Kodutöö - keys](keys.md) | [Kasutaja loomine XAMPP-is](kasutajaXampp.md)
 
 - SQL - structured Query Language - struktureeritud päringukeel
 - DDL - Data Definition Language -andmebaasi struktuuri loomiseks - CREATE, ALTER
