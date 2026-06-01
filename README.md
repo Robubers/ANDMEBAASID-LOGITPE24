@@ -69,3 +69,7 @@ EXEC kustutaIdjargi 6;
 
 
 
+
+# PORTFOOLIO
+
+[Select_laused](mockaroo.md) | [Kasutajate_loomine SQL server](kasutaja.md) | [Triggerid](Trigerid.md) | [Kodutöö - keys](keys.md)
